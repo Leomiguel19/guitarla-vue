@@ -5,6 +5,8 @@
             required: true
         }
     })
+
+    defineEmits(['incrementarCantidad','decrementarCantidad'])
 </script>
 
 <template>
@@ -50,11 +52,19 @@
                                                 ${{producto.precio}}
                                             </td>
                                             <td class="flex align-items-start gap-4">
-                                                <button type="button" class="btn btn-dark">
+                                                <button 
+                                                    type="button" 
+                                                    class="btn btn-dark"
+                                                    @click="$emit('decrementarCantidad', producto.id)"    
+                                                >
                                                     -
                                                 </button>
                                                 {{ producto.cantidad }}
-                                                <button type="button" class="btn btn-dark">
+                                                <button 
+                                                    type="button" 
+                                                    class="btn btn-dark"
+                                                    @click="$emit('incrementarCantidad', producto.id)"    
+                                                >
                                                     +
                                                 </button>
                                             </td>
